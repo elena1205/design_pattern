@@ -1,4 +1,5 @@
-PROJECT(factorypattern)
+cmake_minimum_required(VERSION 3.0.0)
+PROJECT(factory VERSION 0.1.0)
 
 SET(INC_DIR
     include
@@ -11,11 +12,10 @@ ENDFOREACH()
 
 SET(SRC_DIR
     src
-    unittest
     )
 
 FOREACH(sub ${SRC_DIR})
     AUX_SOURCE_DIRECTORY(${sub} SOURCE_DIR)
 ENDFOREACH()
 
-ADD_EXECUTABLE(main ${SOURCE_DIR})
+add_library(factory ${SOURCE_DIR})
