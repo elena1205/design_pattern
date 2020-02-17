@@ -4,7 +4,7 @@ project(main VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-include_directories(include)
+include_directories(factory_pattern/include)
 
 add_subdirectory(factory_pattern)
 

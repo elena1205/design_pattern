@@ -1,6 +1,11 @@
 #ifndef _SORT_FACTORY_H_
 #define _SORT_FACTORY_H_
 
+#include <iostream>
+#include <memory>
+
+class SortMethod;
+
 enum class SortType {
     SortBubble,
     SortSelect,
@@ -11,15 +16,15 @@ enum class SortType {
     SortHeap
 };
 
-class sortfactory
+class SimpleFactory
 {
 private:
     /* data */
 public:
-    sortfactory(/* args */) {}
-    virtual ~sortfactory() {}
+    SimpleFactory(/* args */) {}
+    virtual ~SimpleFactory() {}
 
-    std::shared_ptr<sortmethod> generateSortMethod(SortType type);
+    std::shared_ptr<SortMethod> GenerateSortMethod(SortType type);
     std::string sorttypeToString(SortType sType);
 
 };

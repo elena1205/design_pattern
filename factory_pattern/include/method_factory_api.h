@@ -1,0 +1,6 @@
+#ifndef INCLUDE_METHOD_FACTORY_API_H_
+#define INCLUDE_METHOD_FACTORY_API_H_
+
+void implMethodFactory();
+
+#endif  //  INCLUDE_METHOD_FACTORY_API_H_

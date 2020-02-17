@@ -1,33 +1,40 @@
 
+#include "simple_factory.h"
 #include <iostream>
 #include <memory>
-#include "sortmethod.h"
-#include "sortfactory.h"
+#include "sort_method.h"
+#include "sort_method_bubble.h"
+#include "sort_method_quick.h"
+#include "sort_method_merge.h"
+#include "sort_method_select.h"
+#include "sort_method_insert.h"
+#include "sort_method_shell.h"
+#include "sort_method_heap.h"
 
-std::shared_ptr<sortmethod> sortfactory::generateSortMethod(SortType stype) {
-    std::shared_ptr<sortmethod> sortObj = nullptr;
+std::shared_ptr<SortMethod> SimpleFactory::GenerateSortMethod(SortType stype) {
+    std::shared_ptr<SortMethod> sortObj = nullptr;
     switch (stype)
     {
     case SortType::SortBubble :
-        sortObj = std::shared_ptr<sortmethod>(new sortBubble());
+        sortObj = std::shared_ptr<SortMethod>(new SortBubble());
         break;
     case SortType::SortSelect :
-        sortObj = std::shared_ptr<sortmethod>(new  sortSelect());
+        sortObj = std::shared_ptr<SortMethod>(new  SortSelect());
         break;
     case SortType::SortInsert :
-        sortObj = std::shared_ptr<sortmethod>(new sortInsert());
+        sortObj = std::shared_ptr<SortMethod>(new SortInsert());
         break;
     case SortType::SortShell:
-        sortObj = std::shared_ptr<sortmethod>(new sortShell());
+        sortObj = std::shared_ptr<SortMethod>(new SortShell());
         break;
     case SortType::SortQuick:
-        sortObj = std::shared_ptr<sortmethod>(new sortQuick());
+        sortObj = std::shared_ptr<SortMethod>(new SortQuick());
         break;
     case SortType::SortMerge:
-        sortObj = std::shared_ptr<sortmethod>(new sortMerge());
+        sortObj = std::shared_ptr<SortMethod>(new SortMerge());
         break;
     case SortType::SortHeap:
-        sortObj = std::shared_ptr<sortmethod>(new sortHeap());
+        sortObj = std::shared_ptr<SortMethod>(new SortHeap());
         break;
     default:
         std::cout << "unkown sort type " << sorttypeToString(stype) << std::endl;
@@ -36,7 +43,7 @@ std::shared_ptr<sortmethod> sortfactory::generateSortMethod(SortType stype) {
     return sortObj;
 }
 
-std::string sortfactory::sorttypeToString(SortType sType) {
+std::string SimpleFactory::sorttypeToString(SortType sType) {
     std::string typeString;
     switch (sType)
     {

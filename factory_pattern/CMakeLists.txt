@@ -2,7 +2,9 @@ cmake_minimum_required(VERSION 3.0.0)
 PROJECT(factory VERSION 0.1.0)
 
 SET(INC_DIR
-    include
+    products/include
+    simple_factory/include
+    method_factory/include
     )
 
 FOREACH(sub ${INC_DIR})
@@ -11,7 +13,10 @@ ENDFOREACH()
 
 
 SET(SRC_DIR
-    src
+    ./
+    products/src
+    simple_factory/src
+    method_factory/src
     )
 
 FOREACH(sub ${SRC_DIR})
